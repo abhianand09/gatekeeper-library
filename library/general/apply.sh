@@ -5,7 +5,7 @@ do
   echo  "$line"
   cd "$line"
   ls
-  kubectl apply -f kustomization.yaml 
+  kubectl apply -f template.yaml
   cd samples/*
   ls -lrt
   kubectl apply -f constraint.yaml
