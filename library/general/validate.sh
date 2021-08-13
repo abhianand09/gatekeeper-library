@@ -7,7 +7,7 @@ do
   ls
   cd samples/*
   ls -lrt
-  kubectl apply -f example_disallowed.yaml -n dev
+  kubectl --context=$2  apply -f example_disallowed.yaml -n dev
   cd ../../../
   pwd
 done < "$input"

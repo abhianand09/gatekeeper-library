@@ -3,12 +3,12 @@ input=$1
 while IFS= read -r line
 do
   echo  "$line"
-  kubectl kustomize $line | kubectl apply -f - --validate=false
+  kubectl --context=$2  kustomize $line | kubectl --context=$2 apply -f - --validate=false
   cd "$line"
   ls
   cd samples/*
   ls -lrt
-  kubectl apply -f constraint.yaml
+  kubectl --context=$2 apply -f constraint.yaml
   cd ../../../
   pwd
 done < "$input"
